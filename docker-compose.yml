@@ -1,0 +1,22 @@
+version: '3'
+
+networks:
+  monitor:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 192.168.220.0/24
+
+services:
+  # https://opentracing.io/guides/golang/quick-start/
+  jaeger:
+    image: jaegertracing/all-in-one
+    container_name: jaeger
+    hostname: jaeger
+    restart: always
+    ports:
+      - "6831:6831/udp"
+      - "16686:16686"
+    networks:
+      - monitor

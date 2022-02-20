@@ -157,5 +157,4 @@ config/acm.local.*
 
 yam.so
 
-internal/php-src/5.4.41/
-internal/php-src/7.2.6/
+internal/php-src/5.6.40/

@@ -8,12 +8,14 @@ type ZVal interface {
 	Value() interface{}
 
 	IsInt() bool
+	IsNull() bool
 	IsBool() bool
 	IsFloat() bool
 	IsString() bool
 	IsArray() bool
 	IsResource() bool
 	IsPointer() bool
+	IsObject() bool
 
 	AsInt() int
 	AsBool() bool
@@ -22,6 +24,7 @@ type ZVal interface {
 	AsArray() ZArray
 	AsResource() ZResource
 	AsPointer() unsafe.Pointer
+	AsObject() ZObject
 }
 
 type ZArray interface {
@@ -33,6 +36,11 @@ type ZArray interface {
 }
 
 type ZResource interface {
+	ID() int32
+	Pointer() unsafe.Pointer
+}
+
+type ZObject interface {
 	ID() int32
 	Pointer() unsafe.Pointer
 }
